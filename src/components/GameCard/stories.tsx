@@ -13,9 +13,9 @@ export default {
   },
   argTypes: {
     onFavorite: {
-      action: 'clicked',
-      ribbon: { type: 'string' }
-    }
+      action: 'clicked'
+    },
+    ribbon: { type: 'string' }
   },
   parameters: {
     backgrounds: {
