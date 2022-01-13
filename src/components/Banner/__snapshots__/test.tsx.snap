@@ -41,7 +41,7 @@ exports[`<Banner /> should render banner 1`] = `
   background-color: #EAEAEA;
   background-image: url(https://source.unsplash.com/user/willianjusten/1042x580);
   background-position: center center;
-  backgorund-size: cover;
+  background-size: cover;
 }
 
 .c2 {

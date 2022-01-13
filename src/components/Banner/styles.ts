@@ -26,7 +26,7 @@ export const Image = styled.div<{ src: string }>`
     background-color: ${theme.colors.lightGray};
     background-image: url(${src});
     background-position: center center;
-    backgorund-size: cover;
+    background-size: cover;
 
     ${media.greaterThan('medium')`
       height: 58rem;
