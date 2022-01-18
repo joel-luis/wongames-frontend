@@ -5,7 +5,7 @@ import Footer from '.'
 
 describe('<Footer />', () => {
   it('should render the heading', () => {
-    renderWithTheme(<Footer />)
+    const { container } = renderWithTheme(<Footer />)
 
     expect(
       screen.getByRole('heading', { name: /Contact Us/i })
@@ -17,5 +17,7 @@ describe('<Footer />', () => {
     expect(
       screen.getByRole('heading', { name: /Location/i })
     ).toBeInTheDocument()
+
+    expect(container.firstChild).toMatchSnapshot()
   })
 })
