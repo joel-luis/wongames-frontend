@@ -1,12 +1,10 @@
 import { Container } from 'components/Container'
-import Footer from 'components/Footer'
-import Menu from 'components/Menu'
 import BannerSlider from 'components/BannerSlider'
+import Base from 'templates/Base'
+import Showcase from 'components/ShowCase'
 
 import HomeTemplateProps from './types'
-
 import * as S from './styles'
-import Showcase from 'components/ShowCase'
 
 const Home = ({
   banners,
@@ -19,9 +17,8 @@ const Home = ({
   freeGames,
   freeHighlight
 }: HomeTemplateProps) => (
-  <>
+  <Base>
     <Container>
-      <Menu />
       <S.SectionBanner>
         <BannerSlider items={banners} />
       </S.SectionBanner>
@@ -43,13 +40,7 @@ const Home = ({
     </S.SectionUpcoming>
 
     <Showcase title="Free" highlight={freeHighlight} games={freeGames} />
-
-    <S.SectionFooter>
-      <Container>
-        <Footer />
-      </Container>
-    </S.SectionFooter>
-  </>
+  </Base>
 )
 
 export default Home
