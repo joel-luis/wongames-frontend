@@ -76,7 +76,7 @@ const GameDetails = ({
         </S.Block>
 
         <S.Block>
-          <S.Title>Genress</S.Title>
+          <S.Title>Genres</S.Title>
           <S.Description>{genres.join(' / ')}</S.Description>
         </S.Block>
       </S.Content>
