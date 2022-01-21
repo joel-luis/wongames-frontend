@@ -6,11 +6,23 @@ import * as S from './styles'
 
 type Platform = 'windows' | 'linux' | 'mac'
 
+type Rating = 'BR0' | 'BR10' | 'BR12' | 'BR14' | 'BR16' | 'BR18'
+
 export type GameDetailsProps = {
+  developer: string
   platforms: Platform[]
+  releaseDate: string
+  rating: Rating
+  genres: string[]
 }
 
-const GameDetails = ({ platforms }: GameDetailsProps) => {
+const GameDetails = ({
+  developer,
+  platforms,
+  releaseDate,
+  rating,
+  genres
+}: GameDetailsProps) => {
   const platformIcons = {
     linux: <Linux title="Linux" size={18} />,
     mac: <Apple title="Mac" size={18} />,
@@ -28,12 +40,18 @@ const GameDetails = ({ platforms }: GameDetailsProps) => {
       <S.Content>
         <S.Block>
           <S.Title>Developer</S.Title>
-          <S.Description>Gearbox Software</S.Description>
+          <S.Description>{developer}</S.Description>
         </S.Block>
 
         <S.Block>
           <S.Title>Release Date</S.Title>
-          <S.Description>Nov 16, 2019 </S.Description>
+          <S.Description>
+            {new Intl.DateTimeFormat('en-US', {
+              day: 'numeric',
+              month: 'short',
+              year: 'numeric'
+            }).format(new Date(releaseDate))}
+          </S.Description>
         </S.Block>
 
         <S.Block>
@@ -52,12 +70,14 @@ const GameDetails = ({ platforms }: GameDetailsProps) => {
 
         <S.Block>
           <S.Title>Rating</S.Title>
-          <S.Description>18+</S.Description>
+          <S.Description>
+            {rating === 'BR0' ? 'FREE' : `${rating.replace('BR', '')}+`}
+          </S.Description>
         </S.Block>
 
         <S.Block>
           <S.Title>Genres</S.Title>
-          <S.Description>Action / Adventure</S.Description>
+          <S.Description>{genres.join(' / ')}</S.Description>
         </S.Block>
       </S.Content>
     </S.Wrapper>

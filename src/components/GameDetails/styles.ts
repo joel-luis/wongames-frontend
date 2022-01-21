@@ -23,10 +23,19 @@ export const Content = styled.div`
     `}
   `}
 `
-
 export const Block = styled.div``
-export const Icon = styled.div``
-export const IconsWrapper = styled.div``
+
+export const IconsWrapper = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    color: ${theme.colors.white};
+  `}
+`
+export const Icon = styled.div`
+  ${({ theme }) => css`
+    margin-right: ${theme.spacings.xxsmall};
+  `}
+`
 
 export const Title = styled.h3`
   ${({ theme }) => css`
