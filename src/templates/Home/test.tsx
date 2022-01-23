@@ -20,15 +20,6 @@ const props = {
   freeHighlight: HighlightMock
 }
 
-jest.mock('components/Showcase', () => {
-  return {
-    __esModule: true,
-    default: function Mock() {
-      return <div data-testid="Mock Showcase"></div>
-    }
-  }
-})
-
 jest.mock('components/BannerSlider', () => {
   return {
     __esModule: true,
@@ -43,6 +34,5 @@ describe('<Home />', () => {
     renderWithTheme(<Home {...props} />)
 
     expect(screen.getByTestId('Mock Banner Slider')).toBeInTheDocument()
-    expect(screen.getAllByTestId('Mock Showcase')).toHaveLength(5)
   })
 })

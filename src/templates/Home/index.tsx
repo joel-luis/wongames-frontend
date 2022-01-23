@@ -29,7 +29,7 @@ const Home = ({
     </S.SectionNews>
 
     <Showcase
-      title="Mos Popular"
+      title="Most Popular"
       highlight={mostPopularHighlight}
       games={mostPopularGames}
     />
