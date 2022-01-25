@@ -1,3 +1,5 @@
+import { GetServerSideProps } from 'next'
+
 import Wishlist, { WishListTemplateProps } from 'templates/Wishlist'
 
 import gamesMock from 'components/GameCardSlider/mock'
@@ -7,7 +9,7 @@ export default function WishlistPage(props: WishListTemplateProps) {
   return <Wishlist {...props} />
 }
 
-export async function getStaticProps() {
+export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: {
       games: gamesMock,
