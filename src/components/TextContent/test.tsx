@@ -10,7 +10,7 @@ const props = {
 
 describe('<TextContent />', () => {
   it('should render the title and content', () => {
-    renderWithTheme(<TextContent {...props} />)
+    const { container } = renderWithTheme(<TextContent {...props} />)
 
     expect(
       screen.getByRole('heading', { name: /description/i })
@@ -19,6 +19,8 @@ describe('<TextContent />', () => {
     expect(
       screen.getByRole('heading', { name: /content/i })
     ).toBeInTheDocument()
+
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render without titlet', () => {
