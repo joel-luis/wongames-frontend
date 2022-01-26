@@ -11,7 +11,7 @@ const props = {
 
 describe('<GameItem />', () => {
   it('should render the item', () => {
-    renderWithTheme(<GameItem {...props} />)
+    const { container } = renderWithTheme(<GameItem {...props} />)
 
     expect(
       screen.getByRole('heading', { name: props.title })
@@ -23,6 +23,8 @@ describe('<GameItem />', () => {
     )
 
     expect(screen.getByText('R$ 215,00')).toBeInTheDocument()
+
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render the item with download link', () => {
