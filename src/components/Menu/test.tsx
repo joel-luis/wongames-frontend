@@ -5,46 +5,50 @@ import Menu from '.'
 
 describe('<Menu />', () => {
   it('should render the menu', () => {
-    const { container } = renderWithTheme(<Menu />)
-    expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
-    expect(screen.getByLabelText(/search/i)).toBeInTheDocument()
-    expect(screen.getByLabelText(/shopping cart/i)).toBeInTheDocument()
+    renderWithTheme(<Menu />)
 
-    expect(container.firstChild).toMatchSnapshot()
+    expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
+    expect(screen.getByRole('img', { name: /won games/i })).toBeInTheDocument()
+    expect(screen.getByLabelText(/search/i)).toBeInTheDocument()
+    expect(screen.getAllByLabelText(/shopping cart/i)).toHaveLength(2)
   })
 
   it('should handle the open/close mobile menu', () => {
     renderWithTheme(<Menu />)
 
-    const fullMenu = screen.getByRole('navigation', { hidden: true })
+    // selecionar o nosso MenuFull
+    const fullMenuElement = screen.getByRole('navigation', { hidden: true })
 
-    expect(fullMenu.getAttribute('aria-hidden')).toBe('true')
-    expect(fullMenu).toHaveStyle({ opacity: 0 })
+    // verificar se o menu tá escondido
+    expect(fullMenuElement.getAttribute('aria-hidden')).toBe('true')
+    expect(fullMenuElement).toHaveStyle({ opacity: 0 })
 
+    // clicar no botão de abrir o menu e verificar se ele abriu
     fireEvent.click(screen.getByLabelText(/open menu/i))
-    expect(fullMenu.getAttribute('aria-hidden')).toBe('false')
-    expect(fullMenu).toHaveStyle({ opacity: 1 })
+    expect(fullMenuElement.getAttribute('aria-hidden')).toBe('false')
+    expect(fullMenuElement).toHaveStyle({ opacity: 1 })
 
+    // clicar no botão de fechar o menu e verificar se ele fechou
     fireEvent.click(screen.getByLabelText(/close menu/i))
-    expect(fullMenu.getAttribute('aria-hidden')).toBe('true')
-    expect(fullMenu).toHaveStyle({ opacity: 0 })
+    expect(fullMenuElement.getAttribute('aria-hidden')).toBe('true')
+    expect(fullMenuElement).toHaveStyle({ opacity: 0 })
   })
 
   it('should show register box when logged out', () => {
     renderWithTheme(<Menu />)
 
-    expect(screen.queryByText(/My account/i)).not.toBeInTheDocument()
-    expect(screen.queryByText(/Whishlist/i)).not.toBeInTheDocument()
-    expect(screen.getByText(/sign in now/i)).toBeInTheDocument()
+    expect(screen.queryByText(/my profile/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/wishlist/i)).not.toBeInTheDocument()
     expect(screen.getByText(/sign up/i)).toBeInTheDocument()
+    expect(screen.getAllByText(/sign in/i)).toHaveLength(2)
   })
 
-  it('should show menu link when logged', () => {
-    renderWithTheme(<Menu userName="Joel Luis" />)
+  it('should show wishlist and account when logged in', () => {
+    renderWithTheme(<Menu username="Joel Luis" />)
 
-    expect(screen.getByText(/My account/i)).toBeInTheDocument()
-    expect(screen.getByText(/Whishlist/i)).toBeInTheDocument()
-    expect(screen.queryByText(/log in now/i)).not.toBeInTheDocument()
+    expect(screen.getAllByText(/my profile/i)).toHaveLength(2)
+    expect(screen.getAllByText(/wishlist/i)).toHaveLength(1)
+    expect(screen.queryByText(/sign in/i)).not.toBeInTheDocument()
     expect(screen.queryByText(/sign up/i)).not.toBeInTheDocument()
   })
 })
