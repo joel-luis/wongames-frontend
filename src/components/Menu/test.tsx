@@ -47,7 +47,7 @@ describe('<Menu />', () => {
     renderWithTheme(<Menu username="Joel Luis" />)
 
     expect(screen.getAllByText(/my profile/i)).toHaveLength(2)
-    expect(screen.getAllByText(/wishlist/i)).toHaveLength(1)
+    expect(screen.getAllByText(/wishlist/i)).toHaveLength(2)
     expect(screen.queryByText(/sign in/i)).not.toBeInTheDocument()
     expect(screen.queryByText(/sign up/i)).not.toBeInTheDocument()
   })

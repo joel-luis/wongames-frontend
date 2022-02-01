@@ -32,10 +32,10 @@ const UserDropdown = ({ username }: UserDropdownProps) => (
           <span>My profile</span>
         </S.Link>
       </Link>
-      <Link href="/whishlist" passHref>
+      <Link href="/wishlist" passHref>
         <S.Link>
           <FavoriteBorder />
-          <span>Whishlist</span>
+          <span>Wishlist</span>
         </S.Link>
       </Link>
       <Link href="/logout" passHref>
