@@ -4,10 +4,11 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import GameCard from '.'
 
 const props = {
+  slug: 'population-Zero',
   title: 'Population Zero',
   developer: 'Rockstar Games',
   img: 'https://source.unsplash.com/user/willianjusten/300x140',
-  price: 'R$ 235,00'
+  price: 235
 }
 
 describe('<GameCard />', () => {
@@ -27,6 +28,11 @@ describe('<GameCard />', () => {
       props.img
     )
 
+    expect(screen.getByRole('link', { name: props.title })).toHaveAttribute(
+      'href',
+      `/game/${props.slug}`
+    )
+
     expect(screen.getByLabelText(/add to whishlist/i)).toBeInTheDocument()
 
     expect(container.firstChild).toMatchSnapshot()
@@ -35,7 +41,7 @@ describe('<GameCard />', () => {
   it('should render price in label', () => {
     renderWithTheme(<GameCard {...props} />)
 
-    const price = screen.getByText('R$ 235,00')
+    const price = screen.getByText('$235.00')
 
     expect(price).not.toHaveStyle({
       textDecoration: 'line-through'
@@ -47,15 +53,13 @@ describe('<GameCard />', () => {
   })
 
   it('should render a line-through price when promotional', () => {
-    renderWithTheme(
-      <GameCard {...props} price="R$ 235,00" promotionalPrice="R$ 199,90" />
-    )
+    renderWithTheme(<GameCard {...props} promotionalPrice={15} />)
 
-    expect(screen.getByText('R$ 235,00')).toHaveStyle({
+    expect(screen.getByText('$235.00')).toHaveStyle({
       textDecoration: 'line-through'
     })
 
-    expect(screen.getByText('R$ 199,90')).not.toHaveStyle({
+    expect(screen.getByText('$15.00')).not.toHaveStyle({
       textDecoration: 'line-through'
     })
   })

@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
 import { ApolloProvider } from '@apollo/client'
-import { useApollo } from 'utils/tests/apollo'
+import { useApollo } from 'utils/apollo'
 
 import Head from 'next/head'
 

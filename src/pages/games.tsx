@@ -1,6 +1,8 @@
 import { GetStaticProps } from 'next'
-import { initializeApollo } from 'utils/tests/apollo'
+
+import { initializeApollo } from 'utils/apollo'
 import { QUERY_GAMES } from 'graphql/queries/games'
+import { QueryGAmes, QueryGAmesVariables } from 'graphql/generated/QueryGAmes'
 
 import GamesTemplate, { GamesTemplateProps } from 'templates/Games'
 
@@ -12,7 +14,7 @@ export default function GamesPage(props: GamesTemplateProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const appoloClient = initializeApollo()
-  const { data } = await appoloClient.query({
+  const { data } = await appoloClient.query<QueryGAmes, QueryGAmesVariables>({
     query: QUERY_GAMES,
     variables: { limit: 9 }
   })
@@ -20,13 +22,11 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       games: data.games.map((game) => ({
+        slug: game.slug,
         title: game.name,
         developer: game.developers[0].name,
-        img: `http://localhost:1337${game.cover.url}`,
-        price: new Intl.NumberFormat('en', {
-          style: 'currency',
-          currency: 'USD'
-        }).format(game.price)
+        img: `http://localhost:1337${game.cover!.url}`,
+        price: game.price
       })),
       filterItems: filterItemsMock
     }

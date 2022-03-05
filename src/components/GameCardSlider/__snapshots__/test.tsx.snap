@@ -93,6 +93,8 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
 
 .c5 {
   max-width: calc(100% - 2.5rem);
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .c6 {
@@ -372,19 +374,21 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
               <article
                 class="c2"
               >
-                <div
+                <a
                   class="c3"
+                  href="/game/undefined"
                 >
                   <img
                     alt="Population Zero"
                     src="https://source.unsplash.com/user/willianjusten/300x140"
                   />
-                </div>
+                </a>
                 <div
                   class="c4"
                 >
-                  <div
+                  <a
                     class="c5"
+                    href="/game/undefined"
                   >
                     <h3
                       class="c6"
@@ -396,7 +400,7 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
                     >
                       Rockstar Games
                     </h4>
-                  </div>
+                  </a>
                   <div
                     class="c8"
                     role="button"
@@ -425,12 +429,12 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
                     <div
                       class="c11"
                     >
-                      R$ 235,00
+                      $235.00
                     </div>
                     <div
                       class="c12"
                     >
-                      R$ 215,00
+                      $215.00
                     </div>
                     <button
                       class="c13"
@@ -468,19 +472,21 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
               <article
                 class="c2"
               >
-                <div
+                <a
                   class="c3"
+                  href="/game/undefined"
                 >
                   <img
                     alt="Population Zero"
                     src="https://source.unsplash.com/user/willianjusten/300x140"
                   />
-                </div>
+                </a>
                 <div
                   class="c4"
                 >
-                  <div
+                  <a
                     class="c5"
+                    href="/game/undefined"
                   >
                     <h3
                       class="c6"
@@ -492,7 +498,7 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
                     >
                       Rockstar Games
                     </h4>
-                  </div>
+                  </a>
                   <div
                     class="c8"
                     role="button"
@@ -521,12 +527,12 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
                     <div
                       class="c11"
                     >
-                      R$ 235,00
+                      $235.00
                     </div>
                     <div
                       class="c12"
                     >
-                      R$ 215,00
+                      $215.00
                     </div>
                     <button
                       class="c13"
@@ -564,19 +570,21 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
               <article
                 class="c2"
               >
-                <div
+                <a
                   class="c3"
+                  href="/game/undefined"
                 >
                   <img
                     alt="Population Zero"
                     src="https://source.unsplash.com/user/willianjusten/300x140"
                   />
-                </div>
+                </a>
                 <div
                   class="c4"
                 >
-                  <div
+                  <a
                     class="c5"
+                    href="/game/undefined"
                   >
                     <h3
                       class="c6"
@@ -588,7 +596,7 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
                     >
                       Rockstar Games
                     </h4>
-                  </div>
+                  </a>
                   <div
                     class="c8"
                     role="button"
@@ -617,12 +625,12 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
                     <div
                       class="c11"
                     >
-                      R$ 235,00
+                      $235.00
                     </div>
                     <div
                       class="c12"
                     >
-                      R$ 215,00
+                      $215.00
                     </div>
                     <button
                       class="c13"
@@ -660,19 +668,21 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
               <article
                 class="c2"
               >
-                <div
+                <a
                   class="c3"
+                  href="/game/undefined"
                 >
                   <img
                     alt="Population Zero"
                     src="https://source.unsplash.com/user/willianjusten/300x140"
                   />
-                </div>
+                </a>
                 <div
                   class="c4"
                 >
-                  <div
+                  <a
                     class="c5"
+                    href="/game/undefined"
                   >
                     <h3
                       class="c6"
@@ -684,7 +694,7 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
                     >
                       Rockstar Games
                     </h4>
-                  </div>
+                  </a>
                   <div
                     class="c8"
                     role="button"
@@ -713,12 +723,12 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
                     <div
                       class="c11"
                     >
-                      R$ 235,00
+                      $235.00
                     </div>
                     <div
                       class="c12"
                     >
-                      R$ 215,00
+                      $215.00
                     </div>
                     <button
                       class="c13"
